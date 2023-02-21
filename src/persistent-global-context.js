@@ -1,44 +1,26 @@
 module.exports = function(RED) {
     function PersistentGlobalContextNode(config) {
         RED.nodes.createNode(this,config);		
-		this.columns = config.columns;
-		this.enableBuffering = config.enableBuffering;
-		this.bufferSize = config.bufferSize;
-		this.bufferTimeout = config.bufferTimeout;
-		this.enableDateColumn = config.enableDateColumn;
-		this.seperator = config.seperator;
 		
-		var columns = this.columns;
-		var enableBuffering = false;
-		var enableDateColumn = false;
-		if (this.enableBuffering == "1"){
-			enableBuffering = true;
-		}else{
-			enableBuffering = false;
-		}
-		if (this.enableDateColumn == "1"){
-			enableDateColumn = true;
-		}else{
-			enableDateColumn = false;
-		}
-		var bufferSize = parseInt(this.bufferSize);
-		var bufferTimeout = parseFloat(this.bufferTimeout);
 		
-		var seperator = this.seperator;
-		
-        var node = this;
-		
-		const PersistentGlobalContext = require('./PersistentGlobalContext.js');
-		var logger = new PersistentGlobalContext(columns, enableBuffering, bufferSize, bufferTimeout, enableDateColumn, seperator);
-		
-        node.on('input', function(msg) {
-            var data = msg.payload;
-			var path = msg.path;
-			var fileName = msg.fileName;
-			logger.appendLine(data, path, fileName);
-			
-			node.send(msg);
-        });
+        this.on('input', function(msg, send, done) {
+			// do something with 'msg'
+			node.warn("TEST");
+			// var obj = {};
+			// var globalNames = global.keys();
+			// for (var i = 0; i < globalNames.length; i++){
+			// 	//obj[globalNames[i]] = Object.assign({}, global.get(globalNames[i]));
+			// 	obj[globalNames[i]] = global.get(globalNames[i]);
+			// }
+			// node.warn(obj);
+
+			// Once finished, call 'done'.
+			// This call is wrapped in a check that 'done' exists
+			// so the node will work in earlier versions of Node-RED (<1.0)
+			if (done) {
+				done();
+			}
+		});
     }
     RED.nodes.registerType("persistent-global-context",PersistentGlobalContextNode);
 }

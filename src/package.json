@@ -1,0 +1,8 @@
+{
+    "name" : "node-red-contrib-persistent-global-context",
+    "node-red" : {
+        "nodes": {
+            "persistent-global-context": "persistent-global-context.js"
+        }
+    }
+}
