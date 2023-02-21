@@ -18,7 +18,7 @@ module.exports = function(RED) {
 				for (var i = 0; i < globalNames.length; i++){
 					global.set(globalNames[i],globalObj[globalNames[i]]);
 				}
-				var msg = { payload:"Global context is loaded successfully!" };
+				//var msg = { payload:"Global context is loaded successfully!" };
 				//this.send(msg);
 				//this.warn(msg);
 			}else{
@@ -28,9 +28,7 @@ module.exports = function(RED) {
 			this.error(err);
 		}
 		
-        this.on('input', function(msg, send, done) {
-			// do something with 'msg'
-			
+        this.on('input', function(msg, send, done) {		
 			// Access global context of Node-Red instance
 			var global = this.context().global;
 			// Create a JSON object for containing all global data
@@ -39,7 +37,6 @@ module.exports = function(RED) {
 			for (var i = 0; i < globalNames.length; i++){
 				obj[globalNames[i]] = global.get(globalNames[i]);
 			}
-			//this.warn(obj);
 			var globalText = JSON.stringify(obj);
 			fs.writeFile(path, globalText, err => {
 				if (err) {
@@ -47,10 +44,7 @@ module.exports = function(RED) {
 				}
 				// file written successfully
 				});
-			
-			// var msg = { payload:"TEST!!!!!!!!!!!" };
-			// this.send(msg);
-
+				
 			// Once finished, call 'done'.
 			// This call is wrapped in a check that 'done' exists
 			// so the node will work in earlier versions of Node-RED (<1.0)
