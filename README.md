@@ -1,6 +1,6 @@
 # node-red-contrib-persistent-global-context
 
-A <a href="http://nodered.org" target="_new">Node-RED</a> Node that writes all data stored in Global Context to a to local filesystem to keep program data between Node-Red instance deployments and restarts.
+A <a href="http://nodered.org" target="_new">Node-RED</a> Node that writes all data stored in Global Context to local filesystem to keep program data between Node-Red instance deployments and restarts.
 
 ## Install
 
