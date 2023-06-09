@@ -12,6 +12,7 @@ Run the following command in the root directory of your Node-RED install
 
 * This node will save the Global Context data into a local file when it receives input. 
 * So user must define the frequency of local data storage by adjusting the frequency of trigger sent to the node.
+* Use output message to check if the local context file is intact.
 
 ## Example Flow
 
