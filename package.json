@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "description": "Writes all data stored in Global Context to local filesystem to keep program data between Node-Red instance deployments and restarts.",
   "keywords": [ "node-red","persistent global context","context","local context storage" ],
-  "main": ".\\src\\persistent-global-context.js",
+  "main": "/src/persistent-global-context.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/sesenlik/node-red-contrib-persistent-global-context.git"
@@ -12,7 +12,7 @@
   "license": "ISC",
   "node-red" : {
         "nodes": {
-            "persistent-global-context": ".\\src\\persistent-global-context.js"
+            "persistent-global-context": "/src/persistent-global-context.js"
         }
     }
 }
