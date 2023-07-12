@@ -2,7 +2,7 @@ module.exports = function(RED) {
     function PersistentGlobalContextNode(config) {
         RED.nodes.createNode(this,config);		
 		const fs = require('fs');
-		const path = RED.settings.get('userDir') + '\\GlobalContext.json';
+		const path = RED.settings.get('userDir') + '/GlobalContext.json';
 		//this.warn("ON_START");
 		var globalData = "";
 		var globalObj = {};
